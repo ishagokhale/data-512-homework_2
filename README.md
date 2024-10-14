@@ -1,7 +1,7 @@
 # data-512-homework_2
 
 # Goal 
-The goal of this assingment was to explore bias in datasets using Wikipedia articles through API requests. It was also important to consider how our own biases and judgement may affect the way we view data and conclusions.
+The goal of this assingment was to explore bias in datasets using Wikipedia articles through API requests. It was also important to consider how our own biases and judgement may affect the way we view data and conclusions. Additionally, we wanted to anlayze the countries and regions with the most and lest articles per capita and high quality articles per capita. 
 
 # Data Sources and Licensing
 The list of article titles was crawled from this Wikipedia page detailing politicians by country: https://en.wikipedia.org/wiki/Category:Politicians_by_nationality
