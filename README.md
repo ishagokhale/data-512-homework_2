@@ -18,14 +18,14 @@ I also used sample code in my notebookfrom Dr. David McDonald which is licensed 
 https://creativecommons.org/licenses/by/4.0/
 
 # Intermediate Files
-`rev_id.csv`: File with article quality and last revision ID. It is output file from a function in my notebook. 
-`quality_pred.csv`: File with article quality and article quality prediction. It is an output file from `get_data.py`.
-`get_data.py`: Function to get the article quality prediction for each politician.
+`rev_id.csv`: File with article quality and last revision ID. It is output file from a function in my notebook.  
+`quality_pred.csv`: File with article quality and article quality prediction. It is an output file from `get_data.py`.  
+`get_data.py`: Function to get the article quality prediction for each politician.  
 
 
 # Output Files
-`wp_politicians_by_country.csv`: Output CSV file with `article_title, region, country, population (in millions), quality prediction, and last revision ID as columns.
-`wp_countries-no_match.txt`: Output txt file with countries do not have a match between the population data nad article information data. The file just lists the country names. 
+`wp_politicians_by_country.csv`: Output CSV file with `article_title, region, country, population (in millions), quality prediction, and last revision ID as columns.  
+`wp_countries-no_match.txt`: Output txt file with countries do not have a match between the population data nad article information data. The file just lists the country names.  
 
 # Research Implications
  One of your paragraphs should reflect on what you have learned, what you found, what (if anything) surprised you about your findings, and/or what theories you have about why any biases might exist (if you find they exist). In addition to any reflections you want to share about the process of the assignment, please respond (briefly) to at least three of the questions below:
