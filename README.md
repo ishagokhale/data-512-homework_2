@@ -24,7 +24,7 @@ https://creativecommons.org/licenses/by/4.0/
 
 
 # Output Files
-`wp_politicians_by_country.csv`: Output CSV file with `article_title, region, country, population (in millions), quality prediction, and last revision ID as columns.  
+`wp_politicians_by_country.csv`: Output CSV file with `article_title, region, country, population (in millions), quality prediction, and last revision ID` as columns.  
 `wp_countries-no_match.txt`: Output txt file with countries do not have a match between the population data nad article information data. The file just lists the country names.  
 
 # Research Implications
