@@ -179,38 +179,66 @@ def request_ores_score_per_article(article_revid = None, email_address=None, acc
     return json_response
 
 def get_final_csv():
+    # read in poltician names from given CSV file
     politicians = pd.read_csv('Downloads/politicians_by_country_AUG.2024.csv')
+
+    # set up empty dictionary to store article names and quality prediction 
     pred = {}
+
+    # iterate through poltician names needed to make the API call
     for article in politicians.name.to_list():
+
+        #make API request inputing article title (poltician name)
         info = request_pageinfo_per_article(article)
+
+        #get page ID to access last revision ID in dictionary
         page_id = list(info["query"]["pages"].keys())[0]
+
+        #skip articles that do not have revision ID
         if "lastrevid" not in list(info["query"]["pages"][page_id].keys()):
             print("could not find lastrevid for", article)
             continue
+
+        # access revision ID
         rev_id = info["query"]["pages"][page_id]["lastrevid"]
+
+        # make ORES API request using revision ID, email, and access token
         score = request_ores_score_per_article(article_revid= rev_id,
                                         email_address="igokhale@uw.edu",
                                         access_token=ACCESS_TOKEN)
+        
+        # skip article if score does not exist
         if score is None:
             continue
+
+        #some dictionaries did not contain 'enwiki' key 
         if 'enwiki' not in list(score.keys()):
             print('nothing in score from this', article)
             continue
+
+        #convert revision id from interger to string
         rev_id = str(rev_id)
+
+        # skip article if revision ID is not located
         if rev_id not in list(score['enwiki']['scores'].keys()):
             print("could not find rev id")
             continue
+
+        # access quality prediction score
         quality = score['enwiki']['scores'][rev_id]['articlequality']['score']['prediction']
+        
+        # save article title as key and quality as value in dictionary
         pred[article] = quality
 
+    # write article and quality prediction to file
     with open('quality_pred.csv', mode='w', newline='') as file:
         print('writing csv')
         writer = csv.writer(file)
         
-        # Write the header
+        # write the header
         writer.writerow(['article', 'quality_pred'])
         
-        # Write the data
+        # write the data
         for key, value in pred.items():
             writer.writerow([key, value])
 
